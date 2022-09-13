@@ -2,29 +2,31 @@ import React, { useRef, useState } from "react";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import { Link, useNavigate } from "react-router-dom";
-import { Credentials_Container, Title, Message_Login } from './../../components/styles/Credentials.styled'
-import { Button } from './../../components/styles/Button.styled'
+import {
+  Credentials_Container,
+  Title,
+  Message_Login,
+} from "../../components/styles/Credentials.styled";
+import { Button } from "../../components/styles/Button.styled";
 
 function Login() {
+  const email = useRef<HTMLInputElement>(); //nao devia ser <string> ???
+  const password = useRef<HTMLInputElement>();
 
-  const email = useRef();
-  const password = useRef();
-
-  const navigate = useNavigate()
-
+  const navigate = useNavigate();
 
   //message para o user
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState<string>("");
 
   //para guardar o token
-  const [token, setToken] = useState("");
+  const [token, setToken] = useState<string>("");
 
-  const [userId, setUserId] = useState("");
+  const [userId, setUserId] = useState<string>("");
 
-  console.log(token)
-  console.log(userId)
+  console.log(token);
+  console.log(userId);
 
-  async function handleSubmit(event) {
+  async function handleSubmit(event: any) {
     event.preventDefault();
 
     const request = {
@@ -32,10 +34,12 @@ function Login() {
       headers: { "Content-Type": "application/json" },
       //email.current.value maneira de aceder ao useRef
       body: JSON.stringify({
-        email: email.current.value,
-        password: password.current.value,
+        email: email?.current?.value,
+        password: password?.current?.value,
       }),
     };
+
+    // search?.current?.value.toLowerCase() ?? ""
 
     try {
       const response = await fetch(
@@ -46,7 +50,7 @@ function Login() {
 
       if (!json.status) {
         setMessage(json.message);
-        setToken(null);
+        setToken("");
       } else {
         setToken(json.data.token);
         setUserId(json.data.id);
@@ -54,7 +58,8 @@ function Login() {
         localStorage.setItem("token", json.data.token);
         localStorage.setItem("id", json.data.id);
       }
-    } catch (err) {
+    } catch (err: any) {
+      //CORRETO?
       console.log(err.message);
     }
   }
@@ -71,10 +76,10 @@ function Login() {
       <Header />
       <Credentials_Container>
         <Title>Login to your Account</Title>
-        <form onSubmit={handleSubmit} >
-          <label htmlFor = "email">
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="email">
             {/* ref para poder guardar nas variaveis useRef acima */}
-            <input 
+            <input
               ref={email}
               type="text"
               name="email"
@@ -91,12 +96,17 @@ function Login() {
               required
             />
           </label>
-          <Button width='100px' type="submit">Login</Button>
+          <Button width="100px" type="submit">
+            Login
+          </Button>
         </form>
-        <Message_Login color={message} >{message}</Message_Login>
+        <Message_Login color={message}>{message}</Message_Login>
         <p>
           Don't have an account?
-          <Link to="/register"> <strong> Register here</strong></Link>
+          <Link to="/register">
+            {" "}
+            <strong> Register here</strong>
+          </Link>
         </p>
       </Credentials_Container>
       <Footer />

@@ -8,11 +8,12 @@ import {
   Book_Data,
 } from "../../components/styles/BookDetails.styled";
 import { Link } from "react-router-dom";
-import leftArrow from "../../assets/arrow-left.png";
+// import leftArrow from "../../assets/arrow-left.png";
+import { IBook } from "../../types";
 
 function BookDetails() {
   const { id } = useParams();
-  const [bookData, setBookData] = useState({});
+  const [bookData, setBookData] = useState<IBook>(); //como inicio objeto book? pus '?' em baixo
 
   useEffect(() => {
     async function fetchBook() {
@@ -30,14 +31,17 @@ function BookDetails() {
       <Header />
       <Book_Details_Container>
         <Book_Image>
-          <img src={bookData.book_cover} alt="book cover" />
+          <img src={bookData?.book_cover} alt="book cover" />
         </Book_Image>
         <Book_Data>
-          <h1>{bookData.title}</h1>
-          <h3>by {bookData.description}</h3>
-          <p>{bookData.year}</p>
+          <h1>{bookData?.title}</h1>
+          <h3>by {bookData?.description}</h3>
+          <p>{bookData?.year}</p>
           <Link to="/bookspage">
-            <img src={leftArrow} />
+            <img
+              src={require("../../assets/arrow-left.png")}
+              alt="left arrow"
+            />
             <p>Click to go to books page</p>
           </Link>
         </Book_Data>

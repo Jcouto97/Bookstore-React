@@ -2,30 +2,30 @@ import React, { useRef, useState } from 'react'
 import { Link } from "react-router-dom";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import { Credentials_Container, Title, Message_Register } from './../../components/styles/Credentials.styled'
-import { Button } from './../../components/styles/Button.styled'
+import { Credentials_Container, Title, Message_Register } from '../../components/styles/Credentials.styled'
+import { Button } from '../../components/styles/Button.styled'
 
 
 function Register() {
   /*
 name password email
   */
-  const name = useRef("")
-  const email = useRef("")
-  const password = useRef("")
+  const name = useRef<HTMLInputElement>()
+  const email = useRef<HTMLInputElement>()
+  const password = useRef<HTMLInputElement>()
 
   const [message, setMessage] = useState("")
 
-  async function handleSubmit(event) {
+  async function handleSubmit(event: any) {
     event.preventDefault()
 
     const request = {
       method: 'POST',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        name: name.current.value,
-        email: email.current.value,
-        password: password.current.value
+        name: name?.current?.value,
+        email: email?.current?.value,
+        password: password?.current?.value
       })
     }
 
@@ -39,7 +39,7 @@ name password email
       } else {
         setMessage("Register failed!");
       }
-    } catch (err) {
+    } catch (err: any) {
       console.log(err.message);
     }
 
