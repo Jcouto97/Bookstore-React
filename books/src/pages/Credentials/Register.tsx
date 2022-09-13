@@ -10,9 +10,9 @@ function Register() {
   /*
 name password email
   */
-  const name = useRef<HTMLInputElement>()
-  const email = useRef<HTMLInputElement>()
-  const password = useRef<HTMLInputElement>()
+  const name = useRef<HTMLInputElement>(null);
+  const email = useRef<HTMLInputElement>(null);
+  const password = useRef<HTMLInputElement>(null);
 
   const [message, setMessage] = useState("")
 

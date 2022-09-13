@@ -9,7 +9,7 @@ import twitterlogo from "../assets/logo-twitter.png"; */
 function Footer() {
 
     const location = useLocation();
-    const [isFooterAbsolute, setIsFooterAbsolute] = useState(true); //useStat<boolean>(true)
+    const [isFooterAbsolute, setIsFooterAbsolute] = useState<boolean>(true); 
 
     useEffect(() => {
 

@@ -10,8 +10,8 @@ import {
 import { Button } from "../../components/styles/Button.styled";
 
 function Login() {
-  const email = useRef<HTMLInputElement>(); //nao devia ser <string> ???
-  const password = useRef<HTMLInputElement>();
+  const email = useRef<HTMLInputElement>(null); //INICIAR A NULL QD INPUT STRING
+  const password = useRef<HTMLInputElement>(null);
 
   const navigate = useNavigate();
 

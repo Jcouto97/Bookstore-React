@@ -4,8 +4,8 @@ import { StyledHeader, Nav, Slogan } from './styles/Header.styled';
 import { Container } from './styles/Container.styled';
 import { Hamburguer } from './styles/Hamburguer.styled';
 /* import bookLogo from '../assets/book-logo.png';
-import hamburguer from './../assets/menu-hamburger.png';
 import arrowDown from './../assets/arrow-down.png'; */
+import hamburguer from '../assets/menu-hamburger.png';
 
 
 function HeaderMobile() {
@@ -30,7 +30,7 @@ function HeaderMobile() {
                     <Hamburguer>
                         {isClicked ?
                             <img src={require('./../assets/arrow-down.png')} alt="arrowDown " onClick={handleClick} /> :
-                            <img src={require('./../assets/menu-hamburger.png')} alt="hamburguer menu" onClick={handleClick} />
+                            <img src={hamburguer} alt="hamburguer menu" onClick={handleClick} />
                         }
                         {isClicked ?
                             (

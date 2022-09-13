@@ -3,7 +3,8 @@ import styled from 'styled-components';
 export const StyledFooter = styled.footer`
     background-color: #f6f6f6;
     /* recebe prop do footer para fazer conditional rendering se é absoluto na pag ou n */
-    position: ${(props) => (props.isFooterAbsolute ? 'absolute' : 'relative')};
+    position: ${(props:{isFooterAbsolute:boolean}) => (props.isFooterAbsolute ? 'absolute' : 'relative')};
+    //como nao é uma interface e só 1 prop tenho que descontruir 
     left: 0;
     right: 0;
     bottom: 0;

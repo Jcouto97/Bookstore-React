@@ -6,13 +6,16 @@ import {
   Line,
 } from "../../components/styles/Profile.styled";
 
+interface IUser {
+  id?: number;
+  name: string;
+  email: string;
+  profile_picture: string;
+}
+
+//ou interface request aqui, em baixo para exemplificar
+
 function Profile() {
-  interface IUser {
-    id?: number;
-    name: string;
-    email: string;
-    profile_picture: string;
-  }
 
   /* "id": 4,
     "name": "Christophe Soares",
@@ -20,26 +23,27 @@ function Profile() {
     "profile_picture": "https://i1.rgstatic.net/ii/profile.image/272341594800128-1441942704107_Q512/Christophe-Soares.jpg"
  */
   const fetchedToken = localStorage.getItem("token");
-  const [userData, setUserData] = useState<IUser>();
+  const [userData, setUserData] = useState<IUser>(); 
+
 
   /*  function updateUser(data) {
         setUserData(data)
     }
  */
   useEffect(() => {
-    //tenho que enviar token no header para poder aceder ao profile daquele user em especifico
-    //por isso é que preciso deste request
-    const request = {
+   
+    const request : {method: string, headers: {[key: string]: string, Authorization: string} }= {
+                                                //como content type é string usamos [key: string]
       method: "GET",
       headers: {
-        "Content-Type": "application/json",
-        Authorization: fetchedToken,
+        "Content-Type": "application/json", //por causa do - tem ''
+        Authorization: fetchedToken ?? '',
       },
     };
 
     async function fetchById() {
       //aqui nao é o url absoluto porque precisa de proxy, no json properties
-      const response = await fetch(`/api/user/profile`, request as any); //AS ANY AQUI??
+      const response = await fetch(`/api/user/profile`, request); 
       console.log(response);
       const json = await response.json();
       setUserData(json.data);
