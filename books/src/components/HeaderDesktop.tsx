@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import { StyledHeader, Nav, Slogan, Header_Links, Sign_Out } from './styles/Header.styled';
 import { Container } from './styles/Container.styled';
-import bookLogo from '../assets/book-logo.png';
+// import bookLogo from '../assets/book-logo.png';
 
 
 function HeaderDesktop() {
@@ -23,7 +23,7 @@ function HeaderDesktop() {
                         <Link to='/'>
                             <Slogan>
                                 <h1>BookStore</h1>
-                                <img src={bookLogo} alt="book-logo" />
+                                <img src={require('../assets/book-logo.png')} alt="book-logo" />
                             </Slogan>
                         </Link>
                         <Header_Links>
@@ -49,7 +49,7 @@ function HeaderDesktop() {
                         <Link to='/'>
                             <Slogan>
                                 <h1>BookStore</h1>
-                                <img src={bookLogo} alt="book-logo" />
+                                <img src={require('../assets/book-logo.png')} alt="book-logo" />
                             </Slogan>
                         </Link>
                         <Header_Links>

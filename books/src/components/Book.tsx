@@ -29,7 +29,7 @@ const Book_Container = styled.div`
 //qd props a interface sempre chamada assim
 //nos props deixar sempre interface propria 
 interface IBookProps {
-  id?: number; //porsso precisar ou nao
+  id?: number; //posso precisar ou nao
   title: string;
   year: number;
   description: string;
