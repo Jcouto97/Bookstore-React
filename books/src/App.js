@@ -8,6 +8,7 @@ import Profile from "./pages/Credentials/Profile";
 
 
 function App() {
+/*   teste */
   return (
     <>
       <BrowserRouter>
