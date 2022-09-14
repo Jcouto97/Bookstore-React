@@ -20,7 +20,6 @@ function Footer() {
     }, []);
 
     return (
-        //se o isFooterAbsolute é um boolean porque da erro?
         //No overload matches this call
         <StyledFooter isFooterAbsolute={isFooterAbsolute}>
             <Container>

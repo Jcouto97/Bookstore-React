@@ -13,7 +13,7 @@ interface IUser {
   profile_picture: string;
 }
 
-//ou interface request aqui, em baixo para exemplificar
+//ou interface request aqui, em baixo para exemplificar esta destruturado
 
 function Profile() {
 
@@ -22,6 +22,7 @@ function Profile() {
     "email": "csoares@ufp.edu.pt",
     "profile_picture": "https://i1.rgstatic.net/ii/profile.image/272341594800128-1441942704107_Q512/Christophe-Soares.jpg"
  */
+
   const fetchedToken = localStorage.getItem("token");
   const [userData, setUserData] = useState<IUser>(); 
 

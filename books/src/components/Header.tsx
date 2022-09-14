@@ -12,7 +12,6 @@ function Header() {
     //state para poder guardar window size, e ser updatable
     const [windowSize, setWindowSize] = useState(getWindowSize());
 
-    //sempre que a pagina é refreshed useEffect corre sempre que é alterada a dimensao
     useEffect(() => {
         function handleWindowResize() {
             setWindowSize(getWindowSize());

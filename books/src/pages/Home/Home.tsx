@@ -8,14 +8,13 @@ import {
 import { Button } from "../../components/styles/Button.styled";
 import { useNavigate } from "react-router-dom";
 //importar a interface
-import { IBook } from '../../types'; 
+import { IBook } from "../../types";
 
 function Home() {
   const navigate = useNavigate();
 
   const [allBooks, setAllBooks] = useState<IBook[]>([]);
   const [book, setBook] = useState<IBook | null>(null); //null porque {} nao é falso, é true
-  //any senao parte?!
 
   useEffect(() => {
     async function fetchAllBooks() {
@@ -27,7 +26,7 @@ function Home() {
       const randomNr = Math.floor(Math.random() * books.data.length);
       setAllBooks(books.data);
       setBook(books.data[randomNr]);
-      console.log(books.data); //porque aparece 2x?
+      console.log(books.data);
     }
     fetchAllBooks();
   }, []);
@@ -42,10 +41,10 @@ function Home() {
     console.log("sending to book details...");
     //para evitar undefined
     if (!book) {
-      //mostrar erro ao utilizador
+      //mostrar aqui erro ao utilizador
       return;
     }
-    navigate(`/book/${book?.id}`); //se for null nao tenta acessar o id (! nunca vai ser nulo) (? se for null nao tentamos acessar o id)
+    navigate(`/book/${book?.id}`); //se for null nao tenta acessar o id (! afirmamos que nunca vai ser nulo) (? se for null nao tentamos acessar o id)
   }
 
   //conditional rendering para perceber se ja tem livro, se nao tiver aguarda ate ter para aparecer componente com imagem
@@ -67,11 +66,17 @@ function Home() {
           </p>
           <Button onClick={fetchRandomCover}>New Book</Button>
         </Home_Content>
-        <img onClick={sendToBookDetails} src={book.book_cover} alt="Book cover" />
+        <img
+          onClick={sendToBookDetails}
+          src={book.book_cover}
+          alt="Book cover"
+        />
       </Home_Container>
       <Footer />
     </>
-  ) : <></>; //em vez de null
+  ) : (
+    <></> //em vez de null
+  );
 }
 
 export default Home;

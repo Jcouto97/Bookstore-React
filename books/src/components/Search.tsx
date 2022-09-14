@@ -4,7 +4,7 @@ import { Search_Container } from "./styles/Search.styled";
 
 interface ISearchProps {
   handleSearch: () => Promise<void>;
-  search: HTMLInputElement | any; //PORQUE HTMLINPUTELEMENTE N DA?
+  search: HTMLInputElement | any ; //PORQUE HTMLINPUTELEMENTE N DA?
 }
 
 function Search({ handleSearch, search }: ISearchProps) {
@@ -20,7 +20,7 @@ function Search({ handleSearch, search }: ISearchProps) {
           ref={search}
         />
       </label>
-      <img src={require("./../assets/search-bar.png")} />
+      <img src={require("./../assets/search-bar.png")} alt='search' />
     </Search_Container>
   );
 }

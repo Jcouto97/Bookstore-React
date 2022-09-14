@@ -9,12 +9,9 @@ export const Button = styled.button`
   line-height: 30px;
   font-weight: 400;
   width: ${(props: React.CSSProperties) => props.width || "20%"};
-  /* width React.CSSProperties ou STRING? */
-  //porque ${{}} n da?
   background: linear-gradient(94.99deg, #e7d1d5 -3.88%, #ea2eff 120.78%);
   color: #fff;
   background: "linear-gradient(94.99deg, #e7d1d5 -3.88%, #ea2eff 120.78%)";
-  //que ponho aqui??
   color: ${({ color }) => color || "#fff"};
 
   &:hover {

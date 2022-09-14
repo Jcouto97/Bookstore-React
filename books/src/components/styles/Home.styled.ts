@@ -13,7 +13,6 @@ img {
     height: 25%;
     cursor: pointer;
 
-    //porque nao da?
     @media (max-width: 1464px){
         width: 40%;
         padding: 1.5%;

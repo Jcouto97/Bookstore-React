@@ -31,8 +31,8 @@ function BooksPage() {
   //enum
   const [direction, setDirection] = useState<Direction>(Direction.Asc);
 
-  //search
-  const search = useRef<HTMLInputElement>();
+  //search so da com any?
+  const search = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     async function getAllBooks() {
