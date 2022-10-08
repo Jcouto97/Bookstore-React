@@ -1,10 +1,10 @@
-import React from "react";
+import React, { LegacyRef } from "react";
 // import searchBar from './../assets/search-bar.png'
 import { Search_Container } from "./styles/Search.styled";
 
 interface ISearchProps {
   handleSearch: () => Promise<void>;
-  search: HTMLInputElement | any ; //PORQUE HTMLINPUTELEMENTE N DA?
+  search: LegacyRef<HTMLInputElement> | undefined ; //PORQUE HTMLINPUTELEMENTE N DA?
 }
 
 function Search({ handleSearch, search }: ISearchProps) {
